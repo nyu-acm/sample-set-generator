@@ -60,7 +60,11 @@ func main() {
 		fmt.Println(repositoryId, resourceId)
 
 		//generate the eadfiles
-
+		loc := filepath.Join(root, repositories[line[1]])
+		err = client.SerializeEAD(repositoryId, resourceId, loc,true, false, false, false, false, line[2])
+		if err != nil {
+			panic(err)
+		}
 	}
 }
 
